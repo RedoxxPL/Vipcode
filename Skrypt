@@ -1,0 +1,172 @@
+options:
+	l: &8[&c&lMC&7-&f&lPL&8]
+
+variables:
+	{vip14} = 0
+	{vip30} = 0
+	{svip14} = 0
+	{svip30} = 0
+	{efekty30} = 0
+	
+command /vipcodeupdate [<text>]:
+	executable by: players
+	trigger:
+		if player has permission "vipcode.adminx":
+			if argument 1 is not set:
+				send "@l &7Wpisz &e/vipcodeupdate start"
+			if arg 1 is "start":
+				if player has permission "vipcode.update":
+					set {_latest} to result of connect to "https://raw.githubusercontent.com/RedoxxPL/Vipcode/master/Version"
+					set {_now} to "1.1 ALPHA"
+					if {_latest} is not {_now}:
+						send "{@l} &7Aktualizowanie skryptu...."
+						wait 2 ticks
+						delete file "plugins/Skript/scripts/%script%.sk"
+						wait 2 ticks
+						download from "https://raw.githubusercontent.com/RedoxxPL/Vipcode/master/Skrypt" to "plugins/Skript/scripts/%script%.sk"
+						wait 2 ticks
+						broadcast "{@l} &7Uwaga! Teraz moze wystapic lag!"
+						wait 2 ticks
+						execute console command "sk reload %script%"
+						wait 2 ticks
+						send "{@l} &7Skrypt zostal zaktualizowany."
+						send "{@l} &7Skrypt zostal zaktualizowany." to console
+					if {_latest} is {_now}:
+						send "{@l} &7Skrypt pracuje na najnowszej wersji!"
+				else:
+					send "{@l} &7Nie posiadasz uprawnien! (vipcode.update)"
+
+command /vipcodegen [<text>]:
+	trigger:
+		if sender has permission "mcpl.vipcodegen":
+			if argument 1 is "efekty30":
+				set {efekty30.znak1} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {efekty30.znak2} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {efekty30.znak3} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {efekty30.znak4} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"                         
+				set {efekty30.znak5} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {efekty30.znak6} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {efekty30.kod} to "%{efekty30.znak1}%%{efekty30.znak2}%%{efekty30.znak3}%%{efekty30.znak4}%%{efekty30.znak5}%%{efekty30.znak6}%"
+				set {efekty30} to 1
+				send "{@l} &7Kod na Efekty 30d to &e%{efekty30.kod}%&7!"
+				stop
+			if argument 1 is "vip14":
+				set {vip14.znak1} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {vip14.znak2} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {vip14.znak3} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {vip14.znak4} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"                         
+				set {vip14.znak5} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {vip14.znak6} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {vip14.kod} to "%{vip14.znak1}%%{vip14.znak2}%%{vip14.znak3}%%{vip14.znak4}%%{vip14.znak5}%%{vip14.znak6}%"
+				set {vip14} to 1
+				send "{@l} &7Kod na Vipa 14d to &e%{vip14.kod}%&7!"
+				stop
+			if argument 1 is "vip30":
+				set {vip30.znak1} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {vip30.znak2} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {vip30.znak3} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {vip30.znak4} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"                         
+				set {vip30.znak5} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {vip30.znak6} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {vip30.kod} to "%{vip30.znak1}%%{vip30.znak2}%%{vip30.znak3}%%{vip30.znak4}%%{vip30.znak5}%%{vip30.znak6}%"
+				set {vip30} to 1
+				send "{@l} &7Kod na Vipa 30d to &e%{vip30.kod}%&7!"
+				stop
+			if argument 1 is "svip14":
+				set {svip14.znak1} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {svip14.znak2} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {svip14.znak3} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {svip14.znak4} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"                         
+				set {svip14.znak5} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {svip14.znak6} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {svip14.kod} to "%{svip14.znak1}%%{svip14.znak2}%%{svip14.znak3}%%{svip14.znak4}%%{svip14.znak5}%%{svip14.znak6}%"
+				set {svip14} to 1
+				send "{@l} &7Kod na Svipa 14d to &e%{svip14.kod}%&7!"
+				stop
+			if argument 1 is "svip30":
+				set {svip30.znak1} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {svip30.znak2} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {svip30.znak3} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {svip30.znak4} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"                         
+				set {svip30.znak5} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {svip30.znak6} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {svip30.kod} to "%{svip30.znak1}%%{svip30.znak2}%%{svip30.znak3}%%{svip30.znak4}%%{svip30.znak5}%%{svip30.znak6}%"
+				set {svip30} to 1
+				send "{@l} &7Kod na Svipa 30d to &e%{svip30.kod}%&7!"
+				stop
+			else:
+				message "{@l} &7/vipcodegen efekty30, vip14, vip30, svip14, svip30"
+		else:
+			message "&cNie masz uprawnien do tego!"
+			stop
+			
+			
+command /vipcode [<text>]:
+	trigger:
+		if {efekty30} is 1:
+			if argument 1 is not empty:
+				if argument 1 is {efekty30.kod}:
+					execute console command "perm group efekty add %player% 30d"
+					send "{@l} &aKod poprawny! Wygrales Efekty wizualne na 30dni!"
+					broadcast "{@l} &aGracz &e%player% &awygral Efekty wizualne na 30dni!"
+					set {vip14} to 0
+					set {vip30} to 0
+					set {svip14} to 0
+					set {svip30} to 0
+					set {efekty30} to 0
+				else:
+					send "{@l} &cKod niepoprawny!"
+		if {vip14} is 1:
+			if argument 1 is not empty:
+				if argument 1 is {vip14.kod}:
+					execute console command "perm group Vip add %player% 14d"
+					send "{@l} &aKod poprawny! Wygrales range Vip na 14dni!"
+					broadcast "{@l} &aGracz &e%player% &awygral range Vip na 14dni!"
+					set {vip14} to 0
+					set {vip30} to 0
+					set {svip14} to 0
+					set {svip30} to 0
+					set {efekty30} to 0
+				else:
+					send "{@l} &cKod niepoprawny!"					
+		if {vip30} is 1:
+			if argument 1 is not empty:
+				if argument 1 is {vip30.kod}:
+					execute console command "perm group Vip add %player% 30d"
+					send "{@l} &aKod poprawny! Wygrales range Vip na 30dni!"
+					broadcast "{@l} &aGracz &e%player% &awygral range Vip na 30dni!"
+					set {vip14} to 0
+					set {vip30} to 0
+					set {svip14} to 0
+					set {svip30} to 0
+					set {efekty30} to 0
+				else:
+					send "{@l} &cKod niepoprawny!"
+		if {svip14} is 1:
+			if argument 1 is not empty:
+				if argument 1 is {svip14.kod}:
+					execute console command "perm group SuperVip add %player% 14d"
+					send "{@l} &aKod poprawny! Wygrales range SuperVip na 14dni!"
+					broadcast "{@l} &aGracz &e%player% &awygral range SuperVip na 14dni!"
+					set {vip14} to 0
+					set {vip30} to 0
+					set {svip14} to 0
+					set {svip30} to 0
+					set {efekty30} to 0
+				else:
+					send "{@l} &cKod niepoprawny!"
+		if {svip30} is 1:
+			if argument 1 is not empty:
+				if argument 1 is {svip30.kod}:
+					execute console command "perm group SuperVip add %player% 30d"
+					send "{@l} &aKod poprawny! Wygrales range SuperVip na 30dni!"
+					broadcast "{@l} &aGracz &e%player% &awygral range SuperVip na 30dni!"
+					set {vip14} to 0
+					set {vip30} to 0
+					set {svip14} to 0
+					set {svip30} to 0
+					set {efekty30} to 0
+				else:
+					send "{@l} &cKod niepoprawny!"
+		if argument 1 is not set:
+			send "{@l} &7/vipcode <Kod>"
