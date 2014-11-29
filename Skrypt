@@ -21,7 +21,7 @@ command /vipcodeupdate [<text>]:
 					execute console command "sk reload %script%"
 					wait 2 ticks
 					set {_latest} to result of connect to "https://raw.githubusercontent.com/RedoxxPL/Vipcode/master/Version"
-					set {_now} to "2.0 ALPHA"
+					set {_now} to "1.0 BETA"
 					if {_latest} is not {_now}:
 						send "{@l} &7Aktualizowanie skryptu...."
 						wait 2 ticks
