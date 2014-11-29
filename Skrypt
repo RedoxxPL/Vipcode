@@ -14,11 +14,11 @@ command /vipcodeupdate [<text>]:
 	trigger:
 		if player has permission "vipcode.adminx":
 			if argument 1 is not set:
-				send "@l &7Wpisz &e/vipcodeupdate start"
+				send "{@l} &7Wpisz &e/vipcodeupdate start"
 			if arg 1 is "start":
 				if player has permission "vipcode.update":
 					set {_latest} to result of connect to "https://raw.githubusercontent.com/RedoxxPL/Vipcode/master/Version"
-					set {_now} to "1.1 ALPHA"
+					set {_now} to "1.0 ALPHA"
 					if {_latest} is not {_now}:
 						send "{@l} &7Aktualizowanie skryptu...."
 						wait 2 ticks
@@ -40,6 +40,17 @@ command /vipcodeupdate [<text>]:
 command /vipcodegen [<text>]:
 	trigger:
 		if sender has permission "mcpl.vipcodegen":
+			if argument 1 is "efekty14":
+				set {efekty14.znak1} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {efekty14.znak2} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {efekty14.znak3} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {efekty14.znak4} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"                         
+				set {efekty14.znak5} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {efekty14.znak6} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
+				set {efekty14.kod} to "%{efekty14.znak1}%%{efekty14.znak2}%%{efekty14.znak3}%%{efekty14.znak4}%%{efekty14.znak5}%%{efekty14.znak6}%"
+				set {efekty14} to 1
+				send "{@l} &7Kod na Efekty 14d to &e%{efekty14.kod}%&7!"
+				stop
 			if argument 1 is "efekty30":
 				set {efekty30.znak1} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
 				set {efekty30.znak2} to 0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or "a" or "A" or "b" or "B" or "c" or "C" or "d" or "D" or "e" or "E" or "f" or "F" or "g" or "G" or "h" or "H" or "k" or "K" or "l" or "L" or "m" or "M" or "n" or "N" or "o" or "O" or "p" or "P" or "q" or "Q" or "r" or "R" or "s" or "S" or "t" or "T" or "u" or "U" or "v" or "V" or "w" or "W" or "x" or "X" or "y" or "Y" or "z" or "Z"
@@ -96,7 +107,7 @@ command /vipcodegen [<text>]:
 				send "{@l} &7Kod na Svipa 30d to &e%{svip30.kod}%&7!"
 				stop
 			else:
-				message "{@l} &7/vipcodegen efekty30, vip14, vip30, svip14, svip30"
+				message "{@l} &7/vipcodegen efekty14, efekty30, vip14, vip30, svip14, svip30"
 		else:
 			message "&cNie masz uprawnien do tego!"
 			stop
@@ -104,6 +115,20 @@ command /vipcodegen [<text>]:
 			
 command /vipcode [<text>]:
 	trigger:
+		if {efekty14} is 1:
+			if argument 1 is not empty:
+				if argument 1 is {efekty14.kod}:
+					execute console command "perm group efekty add %player% 14d"
+					send "{@l} &aKod poprawny! Wygrales Efekty wizualne na 14dni!"
+					broadcast "{@l} &aGracz &e%player% &awygral Efekty wizualne na 14dni!"
+					set {vip14} to 0
+					set {vip30} to 0
+					set {svip14} to 0
+					set {svip30} to 0
+					set {efekty14} to 0
+					set {efekty30} to 0
+				else:
+					send "{@l} &cKod niepoprawny!"
 		if {efekty30} is 1:
 			if argument 1 is not empty:
 				if argument 1 is {efekty30.kod}:
