@@ -6,6 +6,7 @@ variables:
 	{vip30} = 0
 	{svip14} = 0
 	{svip30} = 0
+	{efekty14} = 0
 	{efekty30} = 0
 	
 command /vipcodeupdate [<text>]:
